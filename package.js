@@ -1,22 +1,38 @@
 Package.describe({
   name: 'shcherbin:users',
-  version: '0.0.1',
-  // Brief, one-line summary of the package.
+  version: '1.0.0',
   summary: '',
-  // URL to the Git repository containing the source code for this package.
   git: '',
-  // By default, Meteor will default to using README.md for documentation.
-  // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+  documentation: 'readme.md'
 });
 
-Package.onUse(function(api) {
-  api.versionsFrom('1.1.0.2');
-  api.addFiles('users.js');
-});
+Package.onUse(function (api) {
+  api.versionsFrom('1.0.1');
 
-Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('shcherbin:users');
-  api.addFiles('users-tests.js');
+  api.use([
+    'underscore',
+    'mongo',
+    'templating',
+    'accounts-password'
+  ]);
+
+  api.addFiles([
+    'lib/collections/permissions.js',
+    'lib/collections/users.js',
+    'lib/helpers.js'
+  ], ['client', 'server']);
+
+  api.addFiles([
+    'server/fixtures/permissions.js',
+    'server/fixtures/users.js',
+    'server/hooks/users.js',
+    'server/publications/users.js'
+  ], 'server');
+
+  api.addFiles([
+    'client/helpers.js'
+  ], 'client');
+
+  api.export('Permissions');
+  api.export('Users');
 });
