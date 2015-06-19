@@ -1,9 +1,9 @@
 Package.describe({
   name: 'shcherbin:users',
-  version: '1.0.0',
-  summary: '',
-  git: '',
-  documentation: 'readme.md'
+  version: '0.1.0',
+  summary: 'Meteor js users with permissions. Accounts-password is in core.',
+  git: 'https://github.com/VladShcherbin/meteor-user-permissions',
+  documentation: null
 });
 
 Package.onUse(function (api) {
@@ -19,13 +19,14 @@ Package.onUse(function (api) {
   api.addFiles([
     'lib/collections/permissions.js',
     'lib/collections/users.js',
-    'lib/helpers.js'
+    'lib/permissions.js'
   ], ['client', 'server']);
 
   api.addFiles([
-    'server/fixtures/permissions.js',
     'server/fixtures/users.js',
     'server/hooks/users.js',
+    'server/methods/permissions.js',
+    'server/publications/permissions.js',
     'server/publications/users.js'
   ], 'server');
 
@@ -33,6 +34,7 @@ Package.onUse(function (api) {
     'client/helpers.js'
   ], 'client');
 
+  api.export('Accounts');
   api.export('Permissions');
   api.export('Users');
 });
