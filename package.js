@@ -1,7 +1,7 @@
 Package.describe({
   name: 'shcherbin:users',
-  version: '0.1.0',
-  summary: 'Meteor js users with permissions. Accounts-password is in core.',
+  version: '0.1.1',
+  summary: 'Users and permissions system, every user has his own permissions. Based on accounts-password.',
   git: 'https://github.com/VladShcherbin/meteor-user-permissions',
   documentation: null
 });

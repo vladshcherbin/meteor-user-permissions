@@ -30,7 +30,7 @@ reactive-var@1.0.5
 retry@1.0.3
 service-configuration@1.0.4
 sha@1.0.3
-shcherbin:users@0.1.0
+shcherbin:users@0.1.1
 spacebars-compiler@1.0.6
 srp@1.0.3
 templating@1.1.1
