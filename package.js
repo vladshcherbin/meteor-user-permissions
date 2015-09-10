@@ -1,9 +1,9 @@
 Package.describe({
   name: 'shcherbin:users',
-  version: '0.1.1',
-  summary: 'Users and permissions system, every user has his own permissions. Based on accounts-password.',
+  version: '1.0.0',
+  summary: 'Users and their permissions system, based on accounts-password.',
   git: 'https://github.com/VladShcherbin/meteor-user-permissions',
-  documentation: null
+  documentation: 'readme.md'
 });
 
 Package.onUse(function (api) {
@@ -13,6 +13,10 @@ Package.onUse(function (api) {
     'underscore',
     'mongo',
     'templating',
+    'accounts-password'
+  ]);
+
+  api.imply([
     'accounts-password'
   ]);
 
@@ -34,7 +38,6 @@ Package.onUse(function (api) {
     'client/helpers.js'
   ], 'client');
 
-  api.export('Accounts');
   api.export('Permissions');
   api.export('Users');
 });
