@@ -181,31 +181,31 @@ If the user has id, his permissions array will be automatically published to cli
 
 **admin.users.all**
 
-If the logged in user is admin, all users will be published.
+- If the logged in user is admin, all users will be published.
 
-If the logged in user has the 'admin.users.index' permission, all users will be published, except the admin users.
+- If the logged in user has the 'admin.users.index' permission, all users will be published, except the admin users.
 
 **admin.users.single** (username)
 
-If the logged in user is admin, the user will be published with his permissions array and his permissions from the permissions collection.
+- If the logged in user is admin, the user will be published with his permissions array and his permissions from the permissions collection.
 
-If the logged in user has 'admin.users.show' permission, the user will be published with his permissions array (but except the 'admin.all' permission). The data from the permissions collection won't be published.
+- If the logged in user has 'admin.users.show' permission, the user will be published with his permissions array (but except the 'admin.all' permission). The data from the permissions collection won't be published.
 
-If the logged in user has also the 'admin.permissions.index' permission, the permissions collection data will also be published.
+- If the logged in user has also the 'admin.permissions.index' permission, the permissions collection data will also be published.
 
 ### Permissions
 
 **admin.permissions.all**
 
-If the logged in user is admin, all permissions will be published.
+- If the logged in user is admin, all permissions will be published.
 
-If the logged in user has 'admin.permissions.index' permission, all permissions with **is_visible: true** will be published.
+- If the logged in user has 'admin.permissions.index' permission, all permissions with **is_visible: true** will be published.
 
 **admin.permissions.single** (title)
 
-If the logged in user is admin, the permission will be published.
+- If the logged in user is admin, the permission will be published.
 
-If the logged in user has 'admin.permissions.show' permission, the permissions with **is_visible: true** will be published.
+- If the logged in user has 'admin.permissions.show' permission, the permissions with **is_visible: true** will be published.
 
 ## License
 
