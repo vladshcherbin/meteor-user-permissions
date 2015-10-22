@@ -5,21 +5,28 @@
 - [About](#about)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Collections](#hooks)
 - [Methods](#methods)
+- [Blaze helpers](#blaze-helpers)
 - [Publications](#publications)
 - [License](#license)
 
 ## About
 
-The package uses the **accounts-password** package and adds permissions to users, that help you restrict private data or functionality. The idea is to have a set of permissions (in permissions collection) and add some permissions to user.
+The package uses the **accounts-password** package and adds permissions to users, that help you restrict private data or functionality. The idea is to have a set of permissions (in permissions collection) or roles and add some permissions to user.
 
 ## Installation
 
-It is highly recommended to install this package before you have any users as it creates the **admin** user with all permissions.
+It is highly recommended to install this package before you have any users as it creates the **admin** user with admin permissions.
+
+There is a core version and versions for Blaze and React on top of it.
 
 ```sh
-meteor add shcherbin:users
+// Blaze
+meteor add shcherbin:user-permissions-blaze
+// React
+meteor add shcherbin:user-permissions-react
+// Core (maybe you use something different, like Angular)
+meteor add shcherbin:user-permissions-core
 ```
 
 ## Usage
@@ -27,44 +34,6 @@ meteor add shcherbin:users
 After installation, two collections will be created for you: **users** and **permissions**. New user will be created for you with all permissions (**admin.all**). You can auth with login **admin** and password **admin** then to create new permissions, new users, grant permissions, etc. *You should also change the password for the **admin** user*.
 
 > All users with the permission **admin.all** are admins.
-
-## Collections
-
-Allow\deny rules:
-
-### Users
-
-**insert**
-
-You can't insert users. Use **Accounts.createUser** method to create a user.
-
-**update**
-
-You can update the user if you have the 'admin.users.update' permission.
-
-**remove**
-
-You can remove the user if you have the 'admin.all' permission (if you are admin).
-
-#### User Hooks
-
-When a new user is created, a **permissions** array is added, even if the user has no permissions granted.
-
-### Permissions
-
-**insert**
-
-You can insert a new permission if you have the 'admin.all' permission (if you are admin).
-
-**update**
-
-You can update the permission if you have the 'admin.all' permission (if you are admin).
-
-**remove**
-
-You can't remove the permission. Use the **removePermission** method, which is described below.
-
-> You need to add a **is_visible** field to your permissions collection to hide the permission from showing and adding.
 
 ## Methods
 
@@ -110,9 +79,21 @@ if (Permissions.hasAnyFrom(Meteor.userId(), ['admin.login', 'admin.users.create'
 }
 ```
 
-### Client
+### Server
 
-There are some helpers, that you can use in your templates:
+**removePermission** (only for admin)
+
+Use this method to remove the permission from the collection. The permission is removed from all users and then from the permissions collection.
+
+```js
+Meteor.call('removePermission', 'admin.users.create', function (error, result) {
+ // check for error
+}
+```
+
+## Blaze helpers
+
+There are some helpers in the Blaze package, that you can use in your templates:
 
 **isAdmin**
 
@@ -120,7 +101,7 @@ Same as **Permissions.isAdmin()**.
 
 ```html
 {{#if isAdmin}}
-  <a href="{{route 'admin.permissions.create'}}">Add a permission</a>
+  {{> privatePart}}
 {{/if}}
 ```
 
@@ -130,7 +111,7 @@ Same as **Permissions.has()**.
 
 ```html
 {{#if hasPermission 'admin.orders.create'}}
-  <a href="{{route 'admin.orders.create'}}">Add an order</a>
+  {{> privatePart}}
 {{/if}}
 ```
 
@@ -140,14 +121,7 @@ Same as **Permissions.hasAllFrom()**. Permissions are separated with '|'.
 
 ```html
 {{#if hasAllPermissions 'admin.login|admin.users.create'}}
-<div class="admin">
-  {{> adminNav}}
-  <main>
-    {{> Template.dynamic template=main}}
-  </main>
-</div>
-{{else}}
-  {{> notFound}}
+  {{> privatePart}}
 {{/if}}
 ```
 
@@ -161,23 +135,11 @@ Same as **Permissions.hasAnyFrom()**. Permissions are separated with '|'.
 {{/if}}
 ```
 
-### Server
-
-**removePermission** (only for admin)
-
-Use this method to remove the permission from the collection. The permission is removed from all users and then from the permissions collection.
-
-```js
-Meteor.call('removePermission', 'admin.users.create', function (error, result) {
- // check for error
-}
-```
-
 ## Publications
 
 ### Users
 
-If the user has id, his permissions array will be automatically published to client.
+If the user is logged in, his permissions array will be automatically published to client.
 
 **admin.users.all**
 

@@ -1,18 +1,17 @@
 Package.describe({
-  name: 'shcherbin:users',
-  version: '1.0.0',
-  summary: 'Users and their permissions system, based on accounts-password.',
+  name: 'shcherbin:user-permissions-core',
+  version: '0.1.0',
+  summary: 'User permissions/roles system, based on accounts-password. Simple and easy to use.',
   git: 'https://github.com/VladShcherbin/meteor-user-permissions',
   documentation: 'readme.md'
 });
 
 Package.onUse(function (api) {
-  api.versionsFrom('1.0.1');
+  api.versionsFrom('1.2');
 
   api.use([
     'underscore',
     'mongo',
-    'templating',
     'accounts-password'
   ]);
 
@@ -21,9 +20,9 @@ Package.onUse(function (api) {
   ]);
 
   api.addFiles([
-    'lib/collections/permissions.js',
-    'lib/collections/users.js',
-    'lib/permissions.js'
+    'both/lib/collections/permissions.js',
+    'both/lib/collections/users.js',
+    'both/lib/permissions.js'
   ], ['client', 'server']);
 
   api.addFiles([
@@ -34,10 +33,8 @@ Package.onUse(function (api) {
     'server/publications/users.js'
   ], 'server');
 
-  api.addFiles([
-    'client/helpers.js'
-  ], 'client');
-
-  api.export('Permissions');
-  api.export('Users');
+  api.export([
+    'Permissions',
+    'Users'
+  ]);
 });
