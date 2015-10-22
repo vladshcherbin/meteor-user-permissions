@@ -2,7 +2,7 @@ Package.describe({
   name: 'shcherbin:user-permissions-react',
   version: '0.1.0',
   summary: 'User permissions system, based on accounts-password. Easy to use. For React.',
-  git: 'https://github.com/VladShcherbin/meteor-user-permissions',
+  git: 'https://github.com/VladShcherbin/meteor-user-permissions/tree/master/react',
   documentation: 'readme.md'
 });
 
