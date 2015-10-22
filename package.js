@@ -15,6 +15,10 @@ Package.onUse(function (api) {
     'accounts-password'
   ]);
 
+  api.use('blaze-html-templates', 'client', {weak: true});
+
+  api.use('react', ['client', 'server'], {weak: true});
+
   api.imply([
     'accounts-password'
   ]);
@@ -22,7 +26,8 @@ Package.onUse(function (api) {
   api.addFiles([
     'both/lib/collections/permissions.js',
     'both/lib/collections/users.js',
-    'both/lib/permissions.js'
+    'both/lib/permissions.js',
+    'both/PermissionsMixin.jsx'
   ], ['client', 'server']);
 
   api.addFiles([
@@ -33,8 +38,13 @@ Package.onUse(function (api) {
     'server/publications/users.js'
   ], 'server');
 
+  api.addFiles([
+    'client/blaze-helpers.js'
+  ], 'client');
+
   api.export([
     'Permissions',
-    'Users'
+    'Users',
+    'PermissionsMixin'
   ]);
 });
