@@ -1,7 +1,7 @@
 Package.describe({
   name: 'shcherbin:user-permissions-react',
   version: '0.1.0',
-  summary: 'React mixin with functions for the shcherbin:user-permissions package.',
+  summary: 'React mixin with functions for the shcherbin:user-permissions-core package.',
   git: 'https://github.com/VladShcherbin/meteor-user-permissions/tree/master/react',
   documentation: 'readme.md'
 });
