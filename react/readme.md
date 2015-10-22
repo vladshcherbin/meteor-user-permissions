@@ -2,7 +2,7 @@
 
 ## About
 
-This package has the React mixin for the [user-permissions-core](https://atmospherejs.com/shcherbin/user-permissions-core) package.
+This package has the React mixin for the [shcherbin:user-permissions-core](https://atmospherejs.com/shcherbin/user-permissions-core) package.
 
 ## Installation
 

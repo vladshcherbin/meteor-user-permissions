@@ -1,7 +1,7 @@
 Package.describe({
   name: 'shcherbin:user-permissions-blaze',
   version: '0.1.0',
-  summary: 'Blaze helpers for the user-permissions package.',
+  summary: 'Blaze helpers for the shcherbin:user-permissions package.',
   git: 'https://github.com/VladShcherbin/meteor-user-permissions/tree/master/blaze',
   documentation: 'readme.md'
 });
