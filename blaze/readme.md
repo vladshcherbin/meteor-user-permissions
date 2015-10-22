@@ -1,7 +1,5 @@
 # Meteor User Permissions Blaze Package
 
-## About
-
 This package has Blaze template helpers for the [shcherbin:user-permissions-core](https://atmospherejs.com/shcherbin/user-permissions-core) package.
 
 ## Installation
@@ -14,9 +12,7 @@ meteor add shcherbin:user-permissions-blaze
 
 The full docs are in the [core package](https://atmospherejs.com/shcherbin/user-permissions-core).
 
-### Blaze helpers
-
-There are some helpers in the Blaze package, that you can use in your templates:
+There are some helpers, that you can use in your templates:
 
 **isAdmin**
 
