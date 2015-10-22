@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'shcherbin:user-permissions-core',
+  name: 'shcherbin:permissions',
   version: '0.1.0',
   summary: 'User permissions/roles system, based on accounts-password. Simple and easy to use.',
   git: 'https://github.com/VladShcherbin/meteor-user-permissions',

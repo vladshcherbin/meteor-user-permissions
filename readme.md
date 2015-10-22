@@ -23,13 +23,13 @@ There is a core version and versions for Blaze and React on top of it.
 
 ```sh
 // Blaze
-meteor add shcherbin:user-permissions-blaze
+meteor add shcherbin:permissions-blaze
 
 // React
-meteor add shcherbin:user-permissions-react
+meteor add shcherbin:permissions-react
 
 // Core (maybe you use something different, like Angular?)
-meteor add shcherbin:user-permissions-core
+meteor add shcherbin:permissions
 ```
 
 ## Usage
