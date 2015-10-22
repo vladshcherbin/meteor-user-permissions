@@ -155,7 +155,7 @@ Same as **Permissions.isAdmin()**.
 
 ```jsx
 if (this.isAdmin()) {
-  <PrivatePart />
+  return <PrivatePart />;
 }
 ```
 
@@ -165,7 +165,7 @@ Same as **Permissions.has()**.
 
 ```jsx
 if (this.hasPermission('admin.orders.create')) {
-  <PrivatePart />
+  return <PrivatePart />;
 }
 ```
 
@@ -175,7 +175,7 @@ Same as **Permissions.hasAllFrom()**. Permissions are separated with '|'.
 
 ```jsx
 if (this.hasAllPermissions('admin.login|admin.users.create')) {
-  <PrivatePart />
+  return <PrivatePart />;
 }
 ```
 
@@ -185,7 +185,7 @@ Same as **Permissions.hasAnyFrom()**. Permissions are separated with '|'.
 
 ```jsx
 if (this.hasAnyPermission('admin.login|admin.users.create')) {
-  <PrivatePart />
+  return <PrivatePart />;
 }
 ```
 
