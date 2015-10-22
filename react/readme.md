@@ -1,8 +1,6 @@
 # Meteor User Permissions React Package
 
-## About
-
-This package has the React mixin for the [shcherbin:user-permissions-core](https://atmospherejs.com/shcherbin/user-permissions-core) package.
+This package has React mixin for the [shcherbin:user-permissions-core](https://atmospherejs.com/shcherbin/user-permissions-core) package.
 
 ## Installation
 
@@ -12,11 +10,7 @@ meteor add shcherbin:user-permissions-react
 
 ## Usage
 
-The full docs are in the [core package](https://atmospherejs.com/shcherbin/user-permissions-core).
-
-### React mixin
-
-There is a mixin with functions, that you can use:
+The full docs are in the [core package](https://atmospherejs.com/shcherbin/user-permissions-core). There is a mixin with functions, that you can use:
 
 ```js
 Component = React.createClass({
