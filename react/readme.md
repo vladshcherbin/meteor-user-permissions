@@ -7,7 +7,6 @@ This package has the React mixin for the [user-permissions-core](https://atmosph
 ## Installation
 
 ```sh
-// React
 meteor add shcherbin:user-permissions-react
 ```
 
@@ -17,7 +16,7 @@ The full docs are in the [core package](https://atmospherejs.com/shcherbin/user-
 
 ### React mixin
 
-There is a mixin with functions in the React package, that you can use:
+There is a mixin with functions, that you can use:
 
 ```js
 Component = React.createClass({
