@@ -11,7 +11,7 @@ Package.onUse(function (api) {
 
   api.use([
     'shcherbin:user-permissions-core@0.1.0',
-    'react'
+    'react@0.1.13'
   ]);
 
   api.imply([
