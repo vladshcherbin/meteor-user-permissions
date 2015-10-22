@@ -1,6 +1,6 @@
 Package.describe({
   name: 'shcherbin:permissions',
-  version: '0.1.0',
+  version: '0.2.0',
   summary: 'User permissions/roles system, based on accounts-password. Simple and easy to use.',
   git: 'https://github.com/VladShcherbin/meteor-user-permissions',
   documentation: 'readme.md'
@@ -15,10 +15,6 @@ Package.onUse(function (api) {
     'accounts-password'
   ]);
 
-  api.use('blaze-html-templates', 'client', {weak: true});
-
-  api.use('react', ['client', 'server'], {weak: true});
-
   api.imply([
     'accounts-password'
   ]);
@@ -26,8 +22,7 @@ Package.onUse(function (api) {
   api.addFiles([
     'both/lib/collections/permissions.js',
     'both/lib/collections/users.js',
-    'both/lib/permissions.js',
-    'both/PermissionsMixin.jsx'
+    'both/lib/permissions.js'
   ], ['client', 'server']);
 
   api.addFiles([
@@ -38,13 +33,28 @@ Package.onUse(function (api) {
     'server/publications/users.js'
   ], 'server');
 
-  api.addFiles([
-    'client/blaze-helpers.js'
-  ], 'client');
-
   api.export([
     'Permissions',
-    'Users',
-    'PermissionsMixin'
+    'Users'
   ]);
+
+  // Blaze and React
+
+  api.use('blaze-html-templates', 'client', {weak: true});
+
+  if (Package['blaze-html-templates']) {
+    api.addFiles([
+      'client/blaze-helpers.js'
+    ], 'client');
+  }
+
+  api.use('react@0.1.13', ['client', 'server'], {weak: true});
+
+  if (Package['react']) {
+    api.addFiles([
+      'both/PermissionsMixin.jsx'
+    ], ['client', 'server']);
+
+    api.export('PermissionsMixin');
+  }
 });
