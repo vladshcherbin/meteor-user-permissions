@@ -19,16 +19,7 @@ The package uses the **accounts-password** package and adds permissions to users
 
 It is highly recommended to install this package before you have any users as it creates the **admin** user with admin permissions.
 
-There is a core version and versions for Blaze and React on top of it.
-
 ```sh
-// Blaze
-meteor add shcherbin:permissions-blaze
-
-// React
-meteor add shcherbin:permissions-react
-
-// Core (maybe you use something different, like Angular?)
 meteor add shcherbin:permissions
 ```
 
@@ -96,7 +87,7 @@ Meteor.call('removePermission', 'admin.users.create', function (error, result) {
 
 ## Blaze helpers
 
-There are some helpers in the Blaze package, that you can use in your templates:
+There are some helpers if you use Blaze, that you can use in your templates:
 
 **isAdmin**
 
@@ -140,7 +131,7 @@ Same as **Permissions.hasAnyFrom()**. Permissions are separated with '|'.
 
 ## React mixin
 
-There is a mixin with functions in the React package, that you can use:
+There is a mixin with functions if you use React, that you can use:
 
 ```js
 Component = React.createClass({
