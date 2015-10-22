@@ -7,6 +7,7 @@
 - [Usage](#usage)
 - [Methods](#methods)
 - [Blaze helpers](#blaze-helpers)
+- [React mixin](#react-mixin)
 - [Publications](#publications)
 - [License](#license)
 
@@ -135,6 +136,57 @@ Same as **Permissions.hasAnyFrom()**. Permissions are separated with '|'.
 {{#if hasAnyPermission 'admin.login|admin.users.create'}}
   {{> privatePart}}
 {{/if}}
+```
+
+## React mixin
+
+There is a mixin with functions in the React package, that you can use:
+
+```js
+Component = React.createClass({
+  mixins: [PermissionsMixin],
+  // ...
+});
+```
+
+**isAdmin**
+
+Same as **Permissions.isAdmin()**.
+
+```jsx
+if (this.isAdmin()) {
+  <PrivatePart />
+}
+```
+
+**hasPermission**
+
+Same as **Permissions.has()**.
+
+```jsx
+if (this.hasPermission('admin.orders.create')) {
+  <PrivatePart />
+}
+```
+
+**hasAllPermissions**
+
+Same as **Permissions.hasAllFrom()**. Permissions are separated with '|'.
+
+```jsx
+if (this.hasAllPermissions('admin.login|admin.users.create')) {
+  <PrivatePart />
+}
+```
+
+**hasAnyPermission**
+
+Same as **Permissions.hasAnyFrom()**. Permissions are separated with '|'.
+
+```jsx
+if (this.hasAnyPermission('admin.login|admin.users.create')) {
+  <PrivatePart />
+}
 ```
 
 ## Publications
