@@ -40,7 +40,7 @@ Package.onUse(function (api) {
 
   // Blaze and React
 
-  api.use('jsx');
+  api.use('jsx@0.2.1');
 
   api.use('react@0.1.13', ['client', 'server'], {weak: true});
 
